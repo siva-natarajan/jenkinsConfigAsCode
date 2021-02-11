@@ -13,6 +13,9 @@ job('tests') {
         echo HELLO WORLD
         ''')
         shell('echo /$(git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy)')
+        environmentVariables {
+            env('CHANGED_FILES', 'new, old')
+        }
         dsl {
             external('jobs/*.groovy')
             removeAction('DELETE')
