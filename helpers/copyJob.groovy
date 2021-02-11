@@ -1,12 +1,12 @@
 import hudson.model.*
 
 for (item in Hudson.instance.items) {
-    jobToBeCopied = 'cucumber_browser_tests.groovy'
+    jobToBeCopied = ('cucumber_browser_tests.groovy').replaceAll('.groovy', '')
     println jobToBeCopied
-    duplicateJobName = '${jobsToBeCopied}-duplicate'
-    println jobToBeCopied
-    if (item.name == jobToBeCopied.replaceAll('.groovy', '')) {
-        println "COPYHAPPENING"
+    duplicateJobName = "$jobToBeCopied-duplicate"
+    println duplicateJobName
+    if (item.name == jobToBeCopied) {
+        println 'COPYHAPPENING'
         Hudson.instance.copy(item, duplicateJobName).save()
     }
 }
