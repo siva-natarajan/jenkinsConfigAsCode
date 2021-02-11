@@ -2,7 +2,7 @@
 import hudson.model.*
 
 for (item in Hudson.instance.items) {
-    println jobName
+    println jobNames
     jobToBeCopied = 'new'
     duplicateJobName = 'newDuplicacy'
     if (item.name == jobName) {

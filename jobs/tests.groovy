@@ -18,7 +18,7 @@ job('tests') {
         }
 
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            binding('jobNames', ['new.groovy', 'test.groovy'])
+            binding('jobNames', 'new.groovy, test.groovy')
         }
     }
 }
