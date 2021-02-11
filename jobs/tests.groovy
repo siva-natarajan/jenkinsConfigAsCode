@@ -1,3 +1,5 @@
+import common.ChangedGroovyFiles
+
 job('tests') {
     scm {
         git {
@@ -16,9 +18,16 @@ job('tests') {
             removeAction('DELETE')
             removeViewAction('DELETE')
         }
-        systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            binding('jobName', 'new')
-            binding('duplicateJobName', 'newDuplicacy')
+        script {
+            changedFiles = ChangedGroovyFiles.changedFilesList()
+            println changedFiles
+            echo changedFiles
+            if (changedFiles.size() > 0) {
+                systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
+                    binding('jobName', 'new')
+                    binding('duplicateJobName', 'newDuplicacy')
+                }
+            }
         }
     }
 }
