@@ -1,3 +1,5 @@
+import common.ChangedGroovyFiles
+
 job('tests') {
     scm {
         git {
@@ -8,7 +10,7 @@ job('tests') {
         }
     }
 
-    def String changedFiles = 'new.groovy, test.groovy'
+    def String changedFiles = ChangedGroovyFiles.changedFilesList()
     steps {
         shell('''
         echo HELLO WORLD

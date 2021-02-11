@@ -13,7 +13,7 @@ class ChangedGroovyFiles {
             }
         }
 
-        return changedFiles
+        return "hello"
     }
 
 }
