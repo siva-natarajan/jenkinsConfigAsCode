@@ -1,5 +1,3 @@
-import common.ChangedGroovyFiles
-
 job('tests') {
     scm {
         git {
@@ -20,7 +18,7 @@ job('tests') {
         }
 
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            binding('jobNames', ChangedGroovyFiles.changedFilesList())
+            binding('jobNames', ['new.groovy', 'test.groovy'])
         }
     }
 }
