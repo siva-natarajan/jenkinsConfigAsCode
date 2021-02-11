@@ -17,8 +17,7 @@ job('tests') {
             removeViewAction('DELETE')
         }
         script {
-            changedFiles = sh script: 'git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy', returnStdout: true
-            shell('echo ${changedFiles}')
+            changedFiles = ['new.groov', 'tests.groovy']
             if (changedFiles.size() > 0) {
                 systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
                     binding('jobName', 'new')
