@@ -1,3 +1,5 @@
+import common.ChangedGroovyFiles
+
 job('tests') {
     scm {
         git {
@@ -7,31 +9,18 @@ job('tests') {
             branch('*/main')
         }
     }
-
-    stages {
-        stage {
-            steps {
-                shell('''
-            echo HELLO WORLD
-            ''')
-                dsl {
-                    external('jobs/*.groovy')
-                    removeAction('DELETE')
-                    removeViewAction('DELETE')
-                }
-            }
+    steps {
+        shell('''
+        echo HELLO WORLD
+        ''')
+        dsl {
+            external('jobs/*.groovy')
+            removeAction('DELETE')
+            removeViewAction('DELETE')
         }
-        stage {
-            script {
-                changedFiles = ['new.groov', 'tests.groovy']
-                if (changedFiles.size() > 0) {
-                    systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-                        binding('jobName', 'new')
-                        binding('duplicateJobName', 'newDuplicacy')
-                    }
-                }
-            }
+
+        systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
+            binding('jobNames', ChangedGroovyFiles.changedFilesList())
         }
     }
-
 }
