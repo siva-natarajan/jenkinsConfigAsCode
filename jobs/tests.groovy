@@ -8,8 +8,8 @@ job('tests') {
         }
     }
 
-    def String changedFiles = shell('git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy')
     steps {
+        def String changedFiles = shell('git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy')
         shell('''
         echo HELLO WORLD
         ''')
