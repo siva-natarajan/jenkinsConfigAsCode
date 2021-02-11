@@ -1,8 +1,9 @@
 job('seed') {
-    scm {
-
-    }
-    triggers {
-        
+    steps {
+        dsl {
+            external('jobs/*.groovy')
+            removeAction('DELETE')
+            removeViewAction('DELETE')
+        }
     }
 }
