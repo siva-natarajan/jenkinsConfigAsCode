@@ -12,6 +12,7 @@ job('tests') {
         shell('''
         echo HELLO WORLD
         ''')
+        shell('echo ${git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy}')
         dsl {
             external('jobs/*.groovy')
             removeAction('DELETE')
