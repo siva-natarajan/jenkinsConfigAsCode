@@ -16,5 +16,7 @@ job('tests') {
             removeAction('DELETE')
             removeViewAction('DELETE')
         }
+        systemGroovyScriptFile('helpers/copyJob.groovy') {
+        }
     }
 }
