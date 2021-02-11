@@ -17,6 +17,8 @@ job('tests') {
             removeViewAction('DELETE')
         }
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
+            binding('jobName', 'new')
+            binding('duplicateJobName', 'newDuplicacy')
         }
     }
 }
