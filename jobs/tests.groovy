@@ -9,7 +9,6 @@ job('tests') {
     }
 
     steps {
-        def String changedFiles = shell('git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy')
         shell('''
         echo HELLO WORLD
         ''')
@@ -20,7 +19,6 @@ job('tests') {
         }
 
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            binding('jobNames', changedFiles)
         }
     }
 }
