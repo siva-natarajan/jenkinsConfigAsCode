@@ -1,5 +1,3 @@
-import common.ChangedGroovyFiles
-
 job('tests') {
     scm {
         git {
@@ -10,7 +8,7 @@ job('tests') {
         }
     }
 
-    def String changedFiles = ChangedGroovyFiles.changedFilesList()
+    def String changedFiles = shell('git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy')
     steps {
         shell('''
         echo HELLO WORLD
