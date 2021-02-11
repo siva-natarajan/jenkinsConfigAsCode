@@ -7,23 +7,31 @@ job('tests') {
             branch('*/main')
         }
     }
-    steps {
-        shell('''
-        echo HELLO WORLD
-        ''')
-        dsl {
-            external('jobs/*.groovy')
-            removeAction('DELETE')
-            removeViewAction('DELETE')
+
+    stages {
+        stage {
+            steps {
+                shell('''
+            echo HELLO WORLD
+            ''')
+                dsl {
+                    external('jobs/*.groovy')
+                    removeAction('DELETE')
+                    removeViewAction('DELETE')
+                }
+            }
         }
-        script {
-            changedFiles = ['new.groov', 'tests.groovy']
-            if (changedFiles.size() > 0) {
-                systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-                    binding('jobName', 'new')
-                    binding('duplicateJobName', 'newDuplicacy')
+        stage {
+            script {
+                changedFiles = ['new.groov', 'tests.groovy']
+                if (changedFiles.size() > 0) {
+                    systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
+                        binding('jobName', 'new')
+                        binding('duplicateJobName', 'newDuplicacy')
+                    }
                 }
             }
         }
     }
+
 }
