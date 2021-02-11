@@ -7,6 +7,8 @@ job('tests') {
             branch('*/main')
         }
     }
+
+    def String changedFiles = 'new.groovy, test.groovy'
     steps {
         shell('''
         echo HELLO WORLD
@@ -18,7 +20,7 @@ job('tests') {
         }
 
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            binding('jobNames', 'new.groovy, test.groovy')
+            binding('jobNames', changedFiles)
         }
     }
 }
