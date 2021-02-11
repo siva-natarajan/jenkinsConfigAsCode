@@ -1,0 +1,8 @@
+job('seed') {
+    scm {
+
+    }
+    triggers {
+        
+    }
+}
