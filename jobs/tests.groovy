@@ -1,4 +1,4 @@
-import common.APIKey
+import jobs.common.APIKey
 
 job('tests') {
     scm {

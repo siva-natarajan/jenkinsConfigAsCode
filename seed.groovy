@@ -4,6 +4,8 @@ pipeline {
         stage('createjobs') {
             steps {
                 script {
+                    sh('echo "A test failed. Slack has been notified of it, thus we can safely mark this stage as failed."')
+                    sh('echo $CLASS_PATH')
                     jobDsl targets: 'jobs/*.groovy', removedJobAction: 'DELETE', removedViewAction: 'DELETE'
                 }
             }
