@@ -1,3 +1,5 @@
+import common.APIKey
+
 job('tests') {
     scm {
         git {
@@ -12,6 +14,7 @@ job('tests') {
         shell('''
         echo HELLO WORLD
         ''')
+        shell("echo /$APIKey.ApiKeyGetter()")
         shell('echo /$(git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy)')
         environmentVariables {
             env('CHANGED_FILES', 'new, old')
@@ -23,7 +26,6 @@ job('tests') {
         }
 
         systemGroovyCommand(readFileFromWorkspace('helpers/copyJob.groovy')) {
-            // TODO:asdfsdafsd
         }
     }
 }
