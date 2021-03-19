@@ -8,6 +8,9 @@ job('new') {
         ''')
     }
     publishers {
+        allure(['allure-results-combined']) {
+        // Bracket body is needed!
+        }
         archiveArtifacts {
             pattern('**/data.txt')
             allowEmpty(true)
