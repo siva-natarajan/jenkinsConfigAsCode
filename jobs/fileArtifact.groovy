@@ -19,6 +19,7 @@ job('fileArtifact') {
     publishers {
         archiveArtifacts {
             pattern('**/newFile.json')
+            pattern('**/newFile.txt')
             allowEmpty(true)
         }
     }
