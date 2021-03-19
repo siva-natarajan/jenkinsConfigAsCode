@@ -7,7 +7,6 @@ job('fileArtifact') {
             branch('*/main')
         }
     }
-    tools { nodejs 'nodejs' }
     steps {
         shell('''
         echo STARTED EXECUTION
