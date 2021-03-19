@@ -30,7 +30,4 @@ job('fileArtifact') {
             allowEmpty(true)
         }
     }
-
-    def command = String.format('curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d \'{"testStage": "%s", "link": "%s", "ts": "%s", "channel": "#backend-notifications", "requestor": "%s"}\' https://f3247171-9315-4217-93fe-212f8b037559.trayapp.io', testStage, testResultsLink, slackThreadId, env.DEPLOY_REQUESTOR)
-    sh(command)
 }
