@@ -15,7 +15,9 @@ job('new') {
         // Bracket body is needed!
         }
         archiveArtifacts {
-            pattern('**/data.txt', 'allure-report.zip', '**/dataTest.txt')
+            pattern('**/data.txt')
+            pattern('allure-report.zip')
+            pattern('**/dataTest.txt')
             allowEmpty(true)
         }
     }
