@@ -11,14 +11,14 @@ job('fileArtifact') {
         shell('''
         echo STARTED EXECUTION
         ''')
-        shell('sh ./src/execute.sh')
+        shell('sh src/execute.sh')
         shell('''
         echo DONE EXECUTION
         ''')
     }
     publishers {
         archiveArtifacts {
-            pattern('./src/newFile.json')
+            pattern('**/newFile.json')
             allowEmpty(true)
         }
     }
