@@ -1,4 +1,4 @@
-import jobs.common.APIKey
+// import jobs.common.APIKey
 
 job('tests') {
     scm {
@@ -14,7 +14,7 @@ job('tests') {
         shell('''
         echo HELLO WORLD
         ''')
-        shell("echo /$APIKey.ApiKeyGetter()")
+        // shell("echo /$APIKey.ApiKeyGetter()")
         shell('echo /$(git diff-tree --no-commit-id --name-only -r -m HEAD jobs/*.groovy)')
         environmentVariables {
             env('CHANGED_FILES', 'new, old')
