@@ -16,7 +16,7 @@ job('fileArtifact') {
 
     publishers {
         archiveArtifacts {
-            pattern('src/another/folder/dummyFile.txt')
+            pattern('**/dummyFile.txt')
             allowEmpty(true)
         }
         postBuildTask {
