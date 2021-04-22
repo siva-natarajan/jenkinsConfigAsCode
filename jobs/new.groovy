@@ -24,7 +24,8 @@ job('new') {
             useProjectRule(true)
             failBuildOnError(true)
             unstableOnWarning(true)
-            parsingRulesPath('')
+            projectRulePath('')
+            parsingRulesPath('/var/jenkins_home/logParserRules.txt')
         }
     }
 }
