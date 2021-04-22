@@ -25,7 +25,7 @@ job('new') {
             failBuildOnError(true)
             unstableOnWarning(true)
             projectRulePath('')
-            parsingRulePAth('')
+            parsingRulePath('')
         }
     }
 }
