@@ -21,7 +21,7 @@ job('new') {
             allowEmpty(true)
         }
         logParser {
-            useProjectRule(true)
+            useProjectRule(false)
             failBuildOnError(true)
             unstableOnWarning(true)
             projectRulePath('')
