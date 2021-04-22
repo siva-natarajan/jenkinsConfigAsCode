@@ -20,5 +20,10 @@ job('new') {
             pattern('**/dataTest.txt')
             allowEmpty(true)
         }
+        logParser {
+            useProjectRule(true)
+            failBuildOnError(true)
+            unstableOnWarning(true)
+        }
     }
 }
