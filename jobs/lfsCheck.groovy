@@ -1,10 +1,6 @@
 pipelineJob('lfsProdJob') {
     description('Production deployment')
 
-    triggers {
-        githubPush()
-    }
-
     logRotator {
         daysToKeep(30)
         numToKeep(60)
