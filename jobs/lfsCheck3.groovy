@@ -1,4 +1,4 @@
-pipelineJob('lfsProdJob2') {
+pipelineJob('lfsProdJob3') {
     description('Production deployment')
 
     logRotator {
