@@ -6,15 +6,6 @@ pipelineJob('lfsProdJob') {
         numToKeep(60)
     }
 
-        wrappers {
-            preScmSteps {
-                steps {
-                    shell('git lfs install')
-                }
-                failOnError()
-            }
-        }
-
     definition {
         cpsScm {
             lightweight(true)
