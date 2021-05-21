@@ -19,7 +19,6 @@ pipelineJob('next-app-production') {
 
                     remote {
                         github('siva-natarajan/gitLFSTest', 'ssh')
-                        credentials(Credentials.GitHubWebhook())
                     }
                 }
                 scriptPath('deploy.Jenkinsfile')
