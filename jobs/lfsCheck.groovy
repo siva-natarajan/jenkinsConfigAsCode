@@ -17,7 +17,7 @@ pipelineJob('lfsProdJob') {
                     extensions {
                         gitLFSPull()
                     }
-                    branch('*/main')
+                    branch('*/branch2')
                     scriptPath('production.Jenkinsfile')
                 }
             }
