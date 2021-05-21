@@ -6,22 +6,29 @@ pipelineJob('lfsProdJob') {
         numToKeep(60)
     }
 
+        wrappers {
+            preScmSteps {
+                steps {
+                    shell('git lfs install')
+                }
+                failOnError()
+            }
+        }
+
     definition {
         cpsScm {
             lightweight(true)
             scm {
                 git {
-                    branch('refs/heads/main')
                     remote {
-                        git {
-                            url('https://github.com/siva-natarajan/gitLFSTest.git')
-                        }
+                        url('https://github.com/siva-natarajan/gitLFSTest.git')
                     }
                     extensions {
                         gitLFSPull()
                     }
+                    branch('*/main')
+                    scriptPath('production.Jenkinsfile')
                 }
-                scriptPath('production.Jenkinsfile')
             }
         }
     }
