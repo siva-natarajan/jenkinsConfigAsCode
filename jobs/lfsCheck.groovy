@@ -23,12 +23,4 @@ pipelineJob('lfsProdJob') {
             }
         }
     }
-
-    stages {
-        stage {
-            step {
-                sh "du -sh .git"
-            }
-        }
-    }
 }
