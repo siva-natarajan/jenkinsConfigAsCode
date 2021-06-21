@@ -2,7 +2,7 @@ pipelineJob('lfsProdJob2') {
     description('Production deployment')
 
     logRotator {
-        daysToKeep(30)
+        daysToKeep(-1)
         numToKeep(60)
     }
 
