@@ -12,7 +12,7 @@ pipelineJob('parentJob') {
                     branch('*/main')
                 }
             }
-            scriptPath('pipeline/high_level_tests.Jenkinsfile')
+            scriptPath('jenkinsFiles/child.Jenkinsfile')
         }
     }
 }
