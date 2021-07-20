@@ -1,3 +1,7 @@
+String getBucketNamePrefixed(String bucketName) {
+    return 'hello_' + bucketName
+}
+
 pipeline {
     agent any
 
@@ -6,6 +10,26 @@ pipeline {
             steps {
                 script {
                     deploymentSlackNotificationId = 'hello'
+                }
+            }
+        }
+
+        stage('parallality') {
+            parallel {
+                stage('stage1') {
+                    steps {
+                        sh('''
+                        echo HELLO WORLD stage1
+                        ''')
+                    }
+                }
+
+                stage('stage 2') {
+                    steps {
+                        sh('''
+                        echo HELLO WORLD stage2
+                        ''')
+                    }
                 }
             }
         }
