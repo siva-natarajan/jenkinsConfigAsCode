@@ -1,9 +1,7 @@
 def stageOne() {
     stage('stageOne') {
         steps {
-            sh('''
-                    echo HELLO WORLD stage1
-                    ''')
+            sh('''echo HELLO WORLD stage1''')
         }
     }
 }
