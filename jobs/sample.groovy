@@ -13,7 +13,7 @@ pipelineJob('Sample Job') {
                         url('https://github.com/siva-natarajan/jenkinsConfigAsCode.git')
                     }
                 }
-                scriptPath('jenkinsFile/sample.Jenkinsfile')
+                scriptPath('jenkinsFiles/sample.Jenkinsfile')
             }
         }
     }
