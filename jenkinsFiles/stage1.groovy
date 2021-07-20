@@ -1,11 +1,9 @@
 def stageOne() {
-    parallel {
-        stage('stageOne') {
-            steps {
-                sh('''
-                        echo HELLO WORLD stage1
-                        ''')
-            }
+    stage('stageOne') {
+        steps {
+            sh('''
+                    echo HELLO WORLD stage1
+                    ''')
         }
     }
 }
