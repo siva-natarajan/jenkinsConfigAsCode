@@ -1,6 +1,7 @@
 // import jobs.common.APIKey
 
 pipelineJob('grandChildJob') {
+    concurrentBuild()
     definition {
         cpsScm {
             lightweight(true)
