@@ -16,20 +16,13 @@ pipeline {
 
         stage('parallality') {
             parallel {
-                stage('stage1') {
-                    steps {
-                        sh('''
-                        echo HELLO WORLD stage1
-                        ''')
-                    }
-                }
-
-                stage('stage 2') {
-                    steps {
-                        sh('''
-                        echo HELLO WORLD stage2
-                        ''')
-                    }
+                "stage1": {
+                    def externalScript = load("stage1.groovy")
+                    externalScript.stageOne()
+                },
+                "stage2": {
+                    def externalScript = load("stage2.groovy")
+                    externalScript.stageTwo()
                 }
             }
         }
