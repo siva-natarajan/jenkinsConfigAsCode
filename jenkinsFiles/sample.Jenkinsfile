@@ -15,11 +15,9 @@ pipeline {
         }
 
         stage('parallality') {
-            parallel {
-                    script {
-                        def externalScriptone = load('stage1.groovy')
-                        externalScriptone.stageOne()
-                    }
+            script {
+                def externalScriptone = load('stage1.groovy')
+                externalScriptone.stageOne()
             }
         }
     }
